@@ -1,4 +1,4 @@
-/* ------------ youtube.com/CodeExplained ------------ */
+
 body{
     padding: 0;
     margin: 0;
@@ -17,11 +17,26 @@ body{
 .header{
     width: 380px;
     height:200px;
-    background-image: url('../img/bg2.jpg');
-    background-size: 100% 200%;
+    background-image: url('../img/bg.jpg');
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     border-radius: 15px 15px 0 0;
     position: relative;
+}
+.calendar{
+    width : 20px;
+    height: 20px;
+    position: absolute;
+    right:20px;
+    bottom: 20px;
+}
+.calendar i{
+    font-size: 20px;
+    color: #FFF;
+}
+.calendar i:hover{
+    cursor : pointer;
+    color:skyblue;
 }
 .clear{
     width : 30px;
@@ -36,7 +51,7 @@ body{
 }
 .clear i:hover{
     cursor: pointer;
-    text-shadow: 1px 3px 5px #000;
+    text-shadow: 1px 2px 2px #000;
     transform: rotate(45deg);
 }
 #date{
@@ -56,8 +71,8 @@ body{
     background-color: #FFF;
     overflow: auto;
 }
-.content::-webkit-scrollbar { 
-    display: none; 
+.content::-webkit-scrollbar {
+    display: none;
 }
 .content ul{
     padding:0;
@@ -155,31 +170,3 @@ body{
     font-family: 'Titillium Web', sans-serif;
     font-size: 20px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
