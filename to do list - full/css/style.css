@@ -1,4 +1,4 @@
-
+/* ------------ youtube.com/CodeExplained ------------ */
 body{
     padding: 0;
     margin: 0;
@@ -17,18 +17,27 @@ body{
 .header{
     width: 380px;
     height:200px;
-    background-image: url('../img/bg.jpg');
+    background-image: url('../gif/winter.gif');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border-radius: 15px 15px 0 0;
     position: relative;
 }
+#time{
+  color:#FFF;
+  position: absolute;
+  bottom: 1px;
+  left: 166px;
+  font-size: 15px;
+  font-family: 'Titillium Web', sans-serif;
+}
+
 .calendar{
     width : 20px;
     height: 20px;
     position: absolute;
     right:20px;
-    bottom: 20px;
+    bottom: 25px;
 }
 .calendar i{
     font-size: 20px;
