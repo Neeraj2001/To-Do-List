@@ -120,7 +120,7 @@ var month = currentTime.getMonth() + 1;
 var total = month;
 
 // Summer
-if (total >= 6 && total <= 12)
+if (total >= 6 && total <= 8)
 {
     document.getElementById("myImage").style.backgroundImage = "url('gif/summer.gif')";
 }
