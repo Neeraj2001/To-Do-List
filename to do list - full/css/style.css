@@ -12,12 +12,26 @@ body{
     width:380px;
     margin:0 auto;
 }
-
+#myImage{
+  width: 380px;
+  height:200px;
+   /* background-image: url('../gif/winter.gif');  */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border-radius: 15px 15px 0 0;
+  position: relative;
+}
+/* .option-a{
+  background-image: url('../gif/rain.gif');
+}
+.option-b{
+  background-image: url('../gif/winter.gif');
+} */
 /* ------------ header ------------ */
 .header{
     width: 380px;
     height:200px;
-    background-image: url('../gif/winter.gif');
+    /* background-image: url('../gif/winter.gif'); */
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border-radius: 15px 15px 0 0;
