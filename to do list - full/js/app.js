@@ -46,52 +46,103 @@ const options = {weekday : "long", month:"short", day:"numeric"};
 const today = new Date();
 
 dateElement.innerHTML = today.toLocaleDateString("en-US", options);
-
 // add to do function
 
 function addToDo(toDo, id, done, trash){
-    
+
     if(trash){ return; }
-    
+
     const DONE = done ? CHECK : UNCHECK;
     const LINE = done ? LINE_THROUGH : "";
-    
+
     const item = `<li class="item">
                     <i class="fa ${DONE} co" job="complete" id="${id}"></i>
                     <p class="text ${LINE}">${toDo}</p>
-                    <i class="fa fa-trash-o de" job="delete" id="${id}"></i>
+                    <i class="fa fa-trash-o de" job="delete" style="font-size:25px;color:dark gray" id="${id}"></i>
                   </li>
                 `;
-    
+
     const position = "beforeend";
-    
+
     list.insertAdjacentHTML(position, item);
 }
+
+
+
 
 // add an item to the list user the enter key
 document.addEventListener("keyup",function(even){
     if(event.keyCode == 13){
         const toDo = input.value;
-        
+
         // if the input isn't empty
         if(toDo){
             addToDo(toDo, id, false, false);
-            
+
             LIST.push({
                 name : toDo,
                 id : id,
                 done : false,
                 trash : false
             });
-            
+
             // add item to localstorage ( this code must be added where the LIST array is updated)
             localStorage.setItem("TODO", JSON.stringify(LIST));
-            
+
             id++;
         }
         input.value = "";
     }
 });
+
+(function () {
+    function checkTime(i) {
+        return (i < 10) ? "0" + i : i;
+    }
+
+    function startTime() {
+        var today = new Date(),
+            h = checkTime(today.getHours()),
+            m = checkTime(today.getMinutes());
+            // s = checkTime(today.getSeconds());
+        document.getElementById('time').innerHTML = h + ":" + m ;
+        t = setTimeout(function () {
+            startTime()
+        }, 500);
+    }
+    startTime();
+})();
+
+
+
+var currentTime = new Date();
+var month = currentTime.getMonth() + 1;
+var total = month;
+
+// Summer
+if (total >= 6 && total <= 8)
+{
+    document.getElementById("myImage").style.backgroundImage = "url('gif/summer.gif')";
+}
+// Autumn
+else if (total >= 9 && total <=11)
+{
+    document.getElementById("myImage").style.backgroundImage="url('gif/automn.gif')";
+}
+// Winter
+else if (total == 12 || total == 1 || total == 2)
+{
+    document.getElementById("myImage").style.backgroundImage = "url('gif/winter.gif')";
+}
+// Spring
+else if (total >= 2 && total <= 6)
+{
+    document.getElementById("myImage").style.backgroundImage = "url('gif/spring.gif')";
+}
+else
+{
+    document.getElementById("myImage").style.backgroundImage = "url('gif/rain.gif')";
+}
 
 
 // complete to do
@@ -99,14 +150,14 @@ function completeToDo(element){
     element.classList.toggle(CHECK);
     element.classList.toggle(UNCHECK);
     element.parentNode.querySelector(".text").classList.toggle(LINE_THROUGH);
-    
+
     LIST[element.id].done = LIST[element.id].done ? false : true;
 }
 
 // remove to do
 function removeToDo(element){
     element.parentNode.parentNode.removeChild(element.parentNode);
-    
+
     LIST[element.id].trash = true;
 }
 
@@ -115,31 +166,13 @@ function removeToDo(element){
 list.addEventListener("click", function(event){
     const element = event.target; // return the clicked element inside list
     const elementJob = element.attributes.job.value; // complete or delete
-    
+
     if(elementJob == "complete"){
         completeToDo(element);
     }else if(elementJob == "delete"){
         removeToDo(element);
     }
-    
+
     // add item to localstorage ( this code must be added where the LIST array is updated)
     localStorage.setItem("TODO", JSON.stringify(LIST));
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
